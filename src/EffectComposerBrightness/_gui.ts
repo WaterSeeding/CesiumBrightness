@@ -47,7 +47,7 @@ export const setGui = (
     {
       min: 0.0,
       max: 5.0,
-      step: 0.01,
+      step: 0.001,
     },
     () => {
       reviseGui(brightness, guiParams);

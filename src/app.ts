@@ -102,7 +102,7 @@ let brightness = new Brightness(
   gui,
   {
     enabled: true,
-    uniformsBrightness: 1.13,
+    uniformsBrightness: 1.137,
   },
   false,
 );

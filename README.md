@@ -1,4 +1,6 @@
 # Brightness
+> - [查看地址](https://cesium-brightness.vercel.app/)
+> - [仓库地址](https://github.com/WaterSeeding/CesiumBrightness)
 
 ## 作用
 

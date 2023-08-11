@@ -1,7 +1,7 @@
-import * as Cesium from 'cesium';
-import { brightnessTable } from './_db';
-import { setGui } from './_gui';
-import { setParams } from './_params';
+import * as Cesium from "cesium";
+import { brightnessTable } from "./_db";
+import { setGui } from "./_gui";
+import { setParams } from "./_params";
 
 export interface BrightnessParamsInterface {
   enabled: boolean;
@@ -17,11 +17,13 @@ class Brightness {
     viewer: Cesium.Viewer,
     gui: dat.GUI,
     brightnessParams?: BrightnessParamsInterface,
-    hideGui?: boolean,
+    hideGui?: boolean
   ) {
     this.viewer = viewer;
+    let brightnessPostProcessStage =
+      Cesium.PostProcessStageLibrary.createBrightnessStage();
     this.brightness = this.viewer.scene.postProcessStages.add(
-      Cesium.PostProcessStageLibrary.createBrightnessStage(),
+      brightnessPostProcessStage
     ) as Cesium.PostProcessStage;
 
     setParams(this.brightness, brightnessTable).then(
@@ -33,13 +35,13 @@ class Brightness {
           this.brightness,
           (brightnessParams: BrightnessParamsInterface) => {
             brightnessTable.add(brightnessParams);
-          },
+          }
         );
         if (hideGui) {
           brightnessGui.close();
           brightnessGui.hide();
         }
-      },
+      }
     );
   }
 }
